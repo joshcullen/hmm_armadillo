@@ -1,4 +1,4 @@
-plot(theta,type='h')
+plot(mod$theta[ngibbs,],type='h')
 
 compare1=function(true,estim){
   rango=range(c(true,estim))
@@ -6,12 +6,12 @@ compare1=function(true,estim){
   lines(rango,rango,col='red')
 }
 
-estim.mu.ak=store.mu.ak[ngibbs,1:4]
-estim.mu.sk=store.mu.sk[ngibbs,1:4]
-estim.sd.sk=sqrt(store.sig2.sk[ngibbs,1:4])
-estim.sd.ak=sqrt(store.sig2.ak[ngibbs,1:4])
+estim.mu.ak=mod$mu.ak[ngibbs,1:4]
+estim.mu.sk=mod$mu.sk[ngibbs,1:4]
+estim.sd.sk=sqrt(mod$sig2.sk[ngibbs,1:4])
+estim.sd.ak=sqrt(mod$sig2.ak[ngibbs,1:4])
 
-ordem=c(1,4,3,2)
+ordem=c(2,4,3,1)
 par(mfrow=c(2,2))
 compare1(true=mu.SL.true,estim=estim.mu.sk[ordem])
 compare1(true=mu.TA.true,estim=estim.mu.ak[ordem])
