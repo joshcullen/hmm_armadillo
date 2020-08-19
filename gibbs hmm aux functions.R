@@ -70,7 +70,7 @@ sample.z=function(TA,SL,mu.ak,mu.sk,sig2.ak,sig2.sk,ltheta,z.k,
   
   #calculate lprob
   lprob=dnorm(TA.mat,mean=mu.ak.mat,sd=sd.ak.mat,log=T)+
-        dnorm(SL.mat,mean=mu.sk.mat,sd=sd.sk.mat,log=T)+ltheta.mat
+    dnorm(SL.mat,mean=mu.sk.mat,sd=sd.sk.mat,log=T)+ltheta.mat
   
   for (i in 1:nobs){
     max.current=max(z.k)
@@ -79,7 +79,7 @@ sample.z=function(TA,SL,mu.ak,mu.sk,sig2.ak,sig2.sk,ltheta,z.k,
     if (max.current<max.group){
       ind=max.current+1
       tmp=dnorm(TA[i],mean=0,sd=sqrt(sig2.ak[ind]+var.mu),log=T)+
-          dnorm(SL[i],mean=0,sd=sqrt(sig2.sk[ind]+var.mu),log=T)+ltheta[ind]
+        dnorm(SL[i],mean=0,sd=sqrt(sig2.sk[ind]+var.mu),log=T)+ltheta[ind]
       lprob1=c(lprob1,tmp)
     }
     lprob1=lprob1-max(lprob1)
@@ -110,7 +110,7 @@ calc.llk=function(TA,SL,z.k,mu.sk,mu.ak,sig2.ak,sig2.sk,max.group){
   for (i in 1:max.group){
     cond=z.k==i
     llk[i]=sum(dnorm(TA[cond],mean=mu.ak[i],sd=sqrt(sig2.ak[i]),log=T))+
-           sum(dnorm(SL[cond],mean=mu.sk[i],sd=sqrt(sig2.sk[i]),log=T))
+      sum(dnorm(SL[cond],mean=mu.sk[i],sd=sqrt(sig2.sk[i]),log=T))
   } 
   llk
 }

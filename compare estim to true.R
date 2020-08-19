@@ -11,7 +11,7 @@ estim.mu.sk=mod$mu.sk[ngibbs,1:4]
 estim.sd.sk=sqrt(mod$sig2.sk[ngibbs,1:4])
 estim.sd.ak=sqrt(mod$sig2.ak[ngibbs,1:4])
 
-ordem=c(2,4,3,1)
+ordem=c(1,3,4,2)
 par(mfrow=c(2,2))
 compare1(true=mu.SL.true,estim=estim.mu.sk[ordem])
 compare1(true=mu.TA.true,estim=estim.mu.ak[ordem])

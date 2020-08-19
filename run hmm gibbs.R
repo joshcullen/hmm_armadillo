@@ -2,10 +2,9 @@ rm(list=ls(all=TRUE))
 set.seed(3)
 
 #import data
-setwd('U:\\GIT_models\\hmm_armadillo')
 source('gibbs hmm aux functions.R')
 source('gibbs hmm main function.R')
-dat=read.csv('fake data.csv',as.is=T)
+dat=read.csv('fake data.csv', as.is=T)
 nobs=nrow(dat)
 
 #priors
@@ -18,7 +17,6 @@ max.group=10
 
 #MCMC stuff
 ngibbs=3000
-nburn=ngibbs/2
 nburn=ngibbs/2
 
 mod=hmm.main.function(dat=dat,var.mu=var.mu,sig2.a=sig2.a,sig2.b=sig2.b,
